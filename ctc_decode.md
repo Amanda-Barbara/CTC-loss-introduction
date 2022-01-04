@@ -14,16 +14,16 @@ TODO
 Beam Search的过程非常简单，每一步搜索选取概率最大的W个节点进行扩展，W也称为Beam Width，其核心还是计算每一步扩展节点的概率。
 从一个简单的例子来看下搜索的穷举过程，T=3，字符集为{a, b}，其时间栅格表如下图：
 
-![](https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/ctc_pics/t01.png)
+![](images/t01.png)
 
 横轴表示时间，纵轴表示每一步输出层的概率，$T=3$，字符集为$\{a, b\}$
 如果对它的搜索空间进行穷举搜索，则每一步都展开进行搜索，如下图所示：
 
-![](https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/ctc_pics/bstree.png)
+![](images/bstree.png)
 
 如上所述，穷举搜索每一步都要扩展全部节点，能保证最终找到最优解（上图中例子最优解$l*=b，p(l*)=0.164$），但搜索复杂度太高，而Beam Search的思路很简单，每一步只选取扩展概率最大的W个节点进行扩展，如下图所示：
 
-![](https://tuchuang-1259359185.cos.ap-chengdu.myqcloud.com/ctc_pics/new_bstree2.png)
+![](images/new_bstree2.png)
 
 由此可见，Beam Search实际上是对搜索数进行了剪枝，使得每一步最多扩展 W 个节点，而不是随着 T 的增加而呈指数增长，降低了搜索复杂度。
 
