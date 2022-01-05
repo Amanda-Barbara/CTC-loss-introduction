@@ -1,12 +1,13 @@
-
 ## CTC 解码算法
 
 不同于一般的任务，训练完成以后直接可以预测输出。序列相关的任务由于输出序列长度不确定，解码输出过程就是一个在解空间内搜索得到最大概率输出的过程。一般而言，输出的算法主要有两种：CTC Prefix Search Decoding 和 beam serach
 
 ### Greedy
+
 贪婪算法，最简单的方法，就是在每一步选取概率最大的标签。
 
 ### CTC Prefix Search Decoding
+
 TODO
 
 ### CTC beam search
@@ -26,5 +27,3 @@ Beam Search的过程非常简单，每一步搜索选取概率最大的W个节�
 ![](images/new_bstree2.png)
 
 由此可见，Beam Search实际上是对搜索数进行了剪枝，使得每一步最多扩展 W 个节点，而不是随着 T 的增加而呈指数增长，降低了搜索复杂度。
-
-
